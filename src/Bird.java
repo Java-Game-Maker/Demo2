@@ -17,15 +17,15 @@ public class Bird extends GameObject {
     SquareCollider squareCollider = new SquareCollider();
     boolean start = true;
 
-    public static int score = -2;
+    public static int score = 0;
 
     public Bird(){
+
         addChild(b);
         setPosition(new Vector2(200,200));
         setScale(new Vector2(70,50));
         setAnimation();
 
-        squareCollider.setVisible(false);
         addChild(squareCollider);
 
     }
@@ -34,27 +34,32 @@ public class Bird extends GameObject {
     public void onCollision(Component c) {
         super.onCollision(c);
         if(start==false){
-            destroy();
+            setPosition(new Vector2(200,200)); //set the player to first pos
+            score = 0; //sets score to 0
         }
         start = false;
 
     }
 
     private void setAnimation(){
+        //List of spirtes to use in my animation
         String[] paths = new String[]{
                 "/sprites/redbird-downflap.png",
                 "/sprites/redbird-midflap.png",
                 "/sprites/redbird-upflap.png"};
+        //load animation
         sprite.loadAnimation(paths);
-        sprite.setTimer(30);
-        sprite.setAngle(45);
-        addChild(sprite);
+        sprite.setTimer(30); //set how fast animation should play
+        addChild(sprite); // add sprite to gameobject
     }
 
     @Override
     public void update() {
         super.update();
-        sprite.setAngle(b.getVelocity().getY()*20);
+
+        sprite.setAngle(b.getVelocity().getY()*20); // set bird angle from our y velocity
+
+        //check for space and if it is pressed we add a force up
         if(Input.isKeyPressed(Keys.SPACE)){
             b.addForce(Vector2.up,80);
         }
@@ -63,7 +68,8 @@ public class Bird extends GameObject {
 
     @Override
     public void draw(Graphics g) {
-        super.draw(g);
+        super.draw(g); // draw bird and its components
+        // draw score with font
         Graphics2D g2d = (Graphics2D) g;
 
         RenderingHints rh =

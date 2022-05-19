@@ -10,14 +10,15 @@ public class Ground extends GameObject {
     PhysicsBody physicsBody = new PhysicsBody();
     SquareCollider squareCollider = new SquareCollider();
     public Ground(){
+        //Load the base sprite
         groundSprite.loadAnimation(new String[]{"/sprites/base.png"});
         groundSprite.setTimer(30);
         addChild(groundSprite);
 
-        physicsBody.setUseGravity(false);
+        physicsBody.setUseGravity(false); //Turn of the gravity fot the ground
         addChild(physicsBody);
-        squareCollider.setVisible(true);
-        addChild(squareCollider);
+
+        addChild(squareCollider);//add collider
 
     }
 
