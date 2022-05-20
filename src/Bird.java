@@ -69,20 +69,7 @@ public class Bird extends GameObject {
     @Override
     public void draw(Graphics g) {
         super.draw(g); // draw bird and its components
-        // draw score with font
-        Graphics2D g2d = (Graphics2D) g;
 
-        RenderingHints rh =
-                new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                        RenderingHints.VALUE_ANTIALIAS_ON);
 
-        rh.put(RenderingHints.KEY_RENDERING,
-                RenderingHints.VALUE_RENDER_QUALITY);
-
-        g2d.setRenderingHints(rh);
-
-        g2d.setFont(new Font("minecraft", Font.PLAIN, 50));
-
-        g2d.drawString(Integer.toString(score), Main.GAMEWORLD.getWidth()/2, 50);
     }
 }
