@@ -9,7 +9,11 @@ import javax.swing.*;
 public class Main extends JavaGameEngine {
 
 
-
+    public static MainScreen mainScreen = new MainScreen();
+    public static Pipes pipes1;
+    public static Pipes pipes2;
+    public static Bird bird = new Bird();
+    public static Ground ground = new Ground();
     public static void main(String[] args){
 
         init(); // Init the world
@@ -24,10 +28,10 @@ public class Main extends JavaGameEngine {
         UpdateThread.camera.setPosition(new Vector2(0,0));//Sets the camera to 0
 
         //Add all the objects
-        ComponentHandler.addObject(new Pipes(new Vector2(600,600)));
-        ComponentHandler.addObject(new Pipes(new Vector2(1000,600)));
-        ComponentHandler.addObject(new Ground());
-        ComponentHandler.addObject(new Bird());
+        ComponentHandler.addObject(new Background());
+        ComponentHandler.addObject(ground);
+        ComponentHandler.addObject(bird);
+        ComponentHandler.addObject(mainScreen);
 
         start(); //start the game
     }
