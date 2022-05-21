@@ -1,4 +1,6 @@
 import JavaGameEngine.Backend.ComponentHandler;
+import JavaGameEngine.Backend.Input.Input;
+import JavaGameEngine.Backend.Input.Keys;
 import JavaGameEngine.Components.GameObject;
 import JavaGameEngine.UI.Button;
 import JavaGameEngine.msc.Vector2;
