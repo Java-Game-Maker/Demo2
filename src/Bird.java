@@ -21,6 +21,7 @@ public class Bird extends GameObject {
 
     public Bird(){
 
+        setLayer(100);
         addChild(b);
         setPosition(new Vector2(200,400));
         setScale(new Vector2(70,50));
