@@ -15,6 +15,7 @@ public class Main extends JavaGameEngine {
     public static Bird bird = new Bird();
     public static Ground ground = new Ground();
     public static void main(String[] args){
+        UpdateThread.camera.setPosition(new Vector2(0,0));//Sets the camera to 0
 
         init(); // Init the world
 
@@ -25,7 +26,6 @@ public class Main extends JavaGameEngine {
 
         PhysicsWorld.setGravityAcceleration(PhysicsWorld.getGravityAcceleration().multiply(2));//Make the graviy 2x
 
-        UpdateThread.camera.setPosition(new Vector2(0,0));//Sets the camera to 0
 
         //Add all the objects
         ComponentHandler.addObject(new Background());

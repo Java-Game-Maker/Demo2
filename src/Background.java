@@ -10,29 +10,23 @@ public class Background extends GameObject {
     public Background(){
         setEnabled(false);
         sprite.loadAnimation(new String[]{"/sprites/background-day.png"});
-        sprite2.loadAnimation(new String[]{"/sprites/background-night.png"});
+        sprite2.loadAnimation(new String[]{"/sprites/background-day.png"});
         sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth(),0));
         addChild(sprite);
         addChild(sprite2);
-    }
-
-    @Override
-    public void start() {
-        sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth(),0));
-
     }
     boolean first = true;
     @Override
     public void update() {
         super.update();
-        if(sprite.getLocalPosition().getX()<-Main.GAMEWORLD.getWidth()){
+        if(sprite.getLocalPosition().getX()<-Main.GAMEWORLD.getWidth()*2){
             sprite.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
         }
-        if(sprite2.getLocalPosition().getX()<-Main.GAMEWORLD.getWidth()){
-            sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
+        if(sprite2.getLocalPosition().getX()<-Main.GAMEWORLD.getWidth()*2){
+            sprite2.setLocalPossition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
         }
 
-        if(first==true&&Main.GAMEWORLD.getWidth()>0){
+        if((first) && (Main.GAMEWORLD.getWidth() > 0)){
             first=false;
             sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
         }
