@@ -35,6 +35,14 @@ public class MainScreen extends GameObject {
     }
 
     @Override
+    public void update() {
+        super.update();
+        if(Input.isKeyDown(Keys.SPACE)){
+            startGame();
+        }
+    }
+
+    @Override
     public void draw(Graphics g) {
         if(isEnabled()){
             Graphics2D g2 = (Graphics2D)g;

@@ -8,7 +8,7 @@ public class Background extends GameObject {
     private float speed = 0.5f;
 
     public Background(){
-        setEnabled(false);
+        setEnabled(true);
         sprite.loadAnimation(new String[]{"/sprites/background-day.png"});
         sprite2.loadAnimation(new String[]{"/sprites/background-day.png"});
         sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth(),0));
@@ -23,7 +23,7 @@ public class Background extends GameObject {
             sprite.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
         }
         if(sprite2.getLocalPosition().getX()<-Main.GAMEWORLD.getWidth()*2){
-            sprite2.setLocalPossition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
+            sprite2.setLocalPosition(new Vector2(Main.GAMEWORLD.getWidth()*2,0));
         }
 
         if((first) && (Main.GAMEWORLD.getWidth() > 0)){
@@ -34,6 +34,5 @@ public class Background extends GameObject {
         sprite2.setLocalPosition(sprite2.getLocalPosition().add(Vector2.left.multiply(speed)));
 
         setScale(new Vector2(Main.GAMEWORLD.getWidth()*2,Main.GAMEWORLD.getHeight()*2));
-
     }
 }

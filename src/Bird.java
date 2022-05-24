@@ -55,7 +55,7 @@ public class Bird extends GameObject {
                 "/sprites/redbird-upflap.png"};
         //load animation
         sprite.loadAnimation(paths);
-        sprite.setTimer(20); //set how fast animation should play
+        sprite.setTimer(50); //set how fast animation should play
         addChild(sprite); // add sprite to gameobject
     }
 
@@ -67,12 +67,13 @@ public class Bird extends GameObject {
 
         //check for space and if it is pressed we add a force up
         if(Input.isKeyPressed(Keys.SPACE)&&b.isUseGravity()){
-            b.addForce(Vector2.up,80);
+            b.addForce(Vector2.up,80*2);
         }
     }
     @Override
     public void draw(Graphics g) {
         super.draw(g); // draw bird and its components
+        /*
         Graphics g3 = g;
         Graphics2D g2 = (Graphics2D)g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -80,6 +81,6 @@ public class Bird extends GameObject {
 
         //g2.drawString("This is gona be awesome",70,20);
         g2.drawString(String.valueOf(score),(Main.GAMEWORLD.getWidth()/2)-(g2.getFont().getSize()/2),50);
-
+*/
     }
 }

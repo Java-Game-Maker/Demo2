@@ -1,6 +1,7 @@
 import JavaGameEngine.Backend.ComponentHandler;
 import JavaGameEngine.Backend.UpdateThread;
 import JavaGameEngine.Components.Physics.PhysicsWorld;
+import JavaGameEngine.Components.Sprite.Sprite;
 import JavaGameEngine.JavaGameEngine;
 import JavaGameEngine.msc.Vector2;
 
@@ -24,10 +25,13 @@ public class Main extends JavaGameEngine {
         frame.setSize(600,1080);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        PhysicsWorld.setGravityAcceleration(PhysicsWorld.getGravityAcceleration().multiply(2));//Make the graviy 2x
+        PhysicsWorld.setGravityAcceleration(PhysicsWorld.getGravityAcceleration().multiply(4));//Make the graviy 2x
 
 
         //Add all the objects
+        Sprite sprite = new Sprite();
+        sprite.loadAnimation(new String[]{"/sprites/background-day.png"});
+
         ComponentHandler.addObject(new Background());
         ComponentHandler.addObject(ground);
         ComponentHandler.addObject(bird);
